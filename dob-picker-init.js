@@ -9,7 +9,7 @@ function initializeDobPicker() {
       clearInterval(intervalId);
       // Check if flatpickr hasn't already been initialized on this element
       if (!dobInput._flatpickr) { 
-        console.log("Initializing flatpickr on #dob-picker");
+        //console.log("Initializing flatpickr on #dob-picker");
         dobInput.readOnly = true; // Make input read-only
         flatpickr(dobInput, {
           dateFormat: "Y-m-d", // Format date as YYYY-MM-DD
@@ -23,7 +23,7 @@ function initializeDobPicker() {
     attempts++;
     if (attempts >= maxAttempts) {
       clearInterval(intervalId); // Stop trying after max attempts
-      console.error("Could not find #dob-picker element after multiple attempts.");
+      //console.error("Could not find #dob-picker element after multiple attempts.");
     }
   }, 100); // Check every 100ms
 }
@@ -33,7 +33,7 @@ const modalSelector = '#Pop-up-Wrapper';
 const targetNode = document.querySelector(modalSelector);
 
 if (targetNode) {
-  console.log("Setting up MutationObserver for modal:", modalSelector);
+  //console.log("Setting up MutationObserver for modal:", modalSelector);
   const observer = new MutationObserver(function(mutationsList, observer) {
     // Check if the modal's display style is not 'none'
     const isVisible = window.getComputedStyle(targetNode).display !== 'none';
@@ -50,11 +50,11 @@ if (targetNode) {
 
   // Also check immediately in case the modal is already visible on page load
   if (window.getComputedStyle(targetNode).display !== 'none') {
-    console.log("Modal already visible on load, initializing DOB picker.");
+    //console.log("Modal already visible on load, initializing DOB picker.");
     initializeDobPicker();
     observer.disconnect();
   }
 
 } else {
-  console.error("Could not find the modal element:", modalSelector);
+  //console.error("Could not find the modal element:", modalSelector);
 }
